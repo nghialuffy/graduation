@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lễ Tốt Nghiệp Đại Học — Thương Huyền</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:        #ffffff;
+    --green:      #ffffff;
+    --green-deep: #0b1d3d;
+    --gold:       #ffffff;
+    --gold-deep:  #ffffff;
+    --cream:      #0e234a;
+    --cream-2:    #17305f;
+    --muted:      #ffffff;
+    --page:       #081226;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 4vw;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #24427e 0%, transparent 55%),
+      radial-gradient(130% 120% at 50% 120%, #050d1f 0%, transparent 60%),
+      var(--page);
+    font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  /* ===== Banner frame (always 16:9, fits the viewport) ===== */
+  .banner {
+    position: relative;
+    width: min(92vw, 1700px, calc((100dvh - 8vh) * 1.3));
+    container-type: inline-size;           /* enables cqw sizing below */
+    display: grid;
+    grid-template-columns: 47% 53%;        /* text 47% · photo 53% */
+    background: linear-gradient(115deg, var(--cream) 0%, var(--cream-2) 100%);
+    border-radius: 0.6cqw;
+    overflow: hidden;
+    box-shadow: 0 2.4cqw 7cqw rgba(0, 0, 0, 0.45);
+  }
+
+  /* ===================== Left — text ===================== */
+  .banner__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6.5cqw 4cqw 6.5cqw 4cqw;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    margin: 0 0 2.4cqw;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05cqw;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    line-height: 1.5;
+  }
+
+  .title {
+    margin: 0 0 1.6cqw;
+    text-align: center;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    font-size: 4cqw;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    color: var(--green);
+  }
+
+  .name {
+    margin: 0;
+    text-align: center;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 7.4cqw;                       /* the biggest element */
+    letter-spacing: 0.005em;
+    color: var(--gold-deep);
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1.2cqw;
+    margin: 2.6cqw 0 3cqw;
+  }
+  .divider::before {
+    content: "";
+    width: 15cqw;
+    height: 1px;
+    flex: none;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .divider__dot {
+    width: 0.8cqw;
+    height: 0.8cqw;
+    flex: none;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .details {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2cqw;
+  }
+
+  .detail {
+    display: flex;
+    align-items: baseline;
+    gap: 2cqw;
+  }
+
+  .detail dt {
+    margin: 0;
+    width: 9.5cqw;
+    flex: none;
+    padding-bottom: 0.25cqw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--gold-deep);
+    font-size: 1.05cqw;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .detail dd {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    font-size: 2.1cqw;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+  }
+
+  .detail--place dd {
+    color: var(--green);
+    font-size: 1.9cqw;
+  }
+
+  /* ===================== Right — photo ===================== */
+  .banner__photo {
+    position: relative;
+    background: var(--green-deep);
+  }
+
+  .banner__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    display: block;
+    filter: saturate(0.96) contrast(1.02);
+  }
+
+  /* Thin gallery-style hairline frame over the photo */
+  .banner__photo::before {
+    content: "";
+    position: absolute;
+    inset: 2cqw;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 0.3cqw;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Soft blend into the cream side so the two halves feel connected */
+  .banner__photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--cream) 0%, rgba(14, 35, 74, 0) 8%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ===================== Mobile ===================== */
+  @media (max-width: 720px) {
+    body { align-items: flex-start; padding: 0; }
+
+    .banner {
+      width: 100%;
+      aspect-ratio: auto;
+      grid-template-columns: 1fr;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .banner__text { padding: 11vw 8vw; }
+
+    .eyebrow    { font-size: 3.2vw; letter-spacing: 0.22em; }
+    .title      { font-size: 9.5vw; }
+    .name       { font-size: 15vw; }
+    .divider    { margin: 6vw 0 7vw; }
+    .divider::before { width: 22vw; }
+    .details    { gap: 6vw; }
+    .detail     { flex-direction: column; gap: 1.6vw; }
+    .detail dt  { width: auto; border-bottom: none; font-size: 3.4vw; }
+    .detail dd  { font-size: 5vw; }
+    .detail--place dd { font-size: 4.6vw; }
+
+    .banner__photo {
+      min-height: 118vw;
+    }
+    .banner__photo::before { inset: 3.5vw; }
+    .banner__photo::after  { display: none; }
+  }
+</style>
+</head>
+
+<body>
+  <main class="banner">
+
+    <!-- Left · event information -->
+    <section class="banner__text">
+      <p class="eyebrow">THÂN MỜI ANH CHỊ EM ĐẾN DỰ</p>
+
+      <h1 class="title">LỄ TỐT NGHIỆP<br />ĐẠI HỌC</h1>
+
+      <h2 class="name">THƯƠNG HUYỀN</h2>
+
+      <div class="divider" aria-hidden="true"><span class="divider__dot"></span></div>
+
+      <dl class="details">
+        <div class="detail">
+          <dt>Ngày</dt>
+          <dd>27.08.2026</dd>
+        </div>
+        <div class="detail">
+          <dt>Giờ</dt>
+          <dd>10:00 – 12:00<br />17:30 – đến khi kết thúc</dd>
+        </div>
+        <div class="detail detail--place">
+          <dt>Địa điểm</dt>
+          <dd>TRƯỜNG ĐẠI HỌC Y HÀ NỘI</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Right · photo (replace the src whenever you have the final image) -->
+    <figure class="banner__photo">
+      <img src="thuonghuyen.jpg" alt="Ảnh Thương Huyền" />
+    </figure>
+
+  </main>
+</body>
+</html>
